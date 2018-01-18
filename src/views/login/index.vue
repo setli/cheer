@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-container>
-      <el-header>Header</el-header>
+      <el-header>zheli shi toubu</el-header>
       <el-main>
         <div class="main">
           <el-input placeholder="用户名" v-model="username">
