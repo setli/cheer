@@ -4,7 +4,7 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -18,20 +18,27 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+    publicPath: process.env.NODE_ENV === 'production' ?
+      config.build.assetsPublicPath : config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'assets': resolve(__dirname, '../src/assets'),
+      'components': resolve(__dirname, '../src/components'),
+      'views': path.resolve(__dirname, '../src/views'),
+      'styles': resolve(__dirname, '../src/styles'),
+      'api': resolve(__dirname, '../src/api'),
+      'store': resolve(__dirname, '../src/store'),
+      'router': resolve(__dirname, '../src/router'),
+      'config': resolve(__dirname, '../config'),
+      'mock': resolve(__dirname, '../src/mock'),
     }
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig
@@ -68,6 +75,17 @@ module.exports = {
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
+      },
+      {
+        test: /(router.*?\.js|components.*?\.vue)$/,
+        loader: 'function-pre-run-loader',
+        query: {
+          functionArray: [{
+            functionName: 'dynamicImportPage',
+            functionArgs: ['comPath'],
+            functionBody: "return `r => require.ensure([], () => r(require('${comPath}')), '${comPath.replace(new RegExp('.*\/page\/|\.vue', 'g'), '').replace(new RegExp('\/', 'g'), '-').toLocaleLowerCase()}'),`"
+          }],
+        }
       }
     ]
   },

@@ -1,31 +1,44 @@
 <template>
   <div>
     <el-container>
-      <el-header>Header</el-header>
+      <el-header>
+        <vheader></vheader>
+      </el-header>
       <el-container>
-        <el-aside width="200px">Aside</el-aside>
-        <el-main>Main</el-main>
+        <el-aside width="200px">
+          <leftNav></leftNav>
+        </el-aside>
+        <el-main>
+          <appmain></appmain>
+        </el-main>
+        <el-footer><vfooter></vfooter></el-footer>
       </el-container>
     </el-container>
   </div>
 </template>
 
 <script>
-import header from '/layout/header'
-import leftNav from '/layout/leftNav'
-import footer from '/layout/footer'
-
+  import vheader from "views/layout/header";
+  import leftNav from "views/layout/leftNav";
+  import vfooter from "views/layout/footer";
+  import appmain from "views/layout/appMain";
   export default {
-      data(){
-        return{
-
-        }
-      },
-      components:{
-        header,
-        leftNav,
-        footer
+    data() {
+      return {};
+    },
+    components: {
+      vheader,
+      leftNav,
+      vfooter,
+      appmain
+    },
+    computed: {
+      key() {
+        return this.$route.name !== undefined ?
+          this.$route.name + +new Date() :
+          this.$route + +new Date();
       }
+    }
   };
 
 </script>
