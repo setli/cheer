@@ -33,11 +33,14 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
 
-<style>
 .main {
   width: 400px;
   padding: 200px;
+  button{
+    width: 100%;
+  }
 }
 .el-footer {
   background-color: #b3c0d1;
