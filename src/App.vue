@@ -6,13 +6,11 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'app'
 }
 </script>
 
-<style>
-#app{
-  margin: 0 auto;
-  width: 100%;
-}
+<style lang="scss"> 
+   @import  'styles/_reset.scss';
 </style>
+

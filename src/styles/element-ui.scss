@@ -1,0 +1,58 @@
+//覆盖一些element-ui样式
+[class*=" btn-"].disabled,
+[class*=" btn-"][disabled],
+[class^=btn-].disabled,
+[class^=btn-][disabled] {
+    background-color: #bbb;
+    border-color: #bbb;
+    color: #fff;
+    cursor: default;
+}
+
+
+[class*=" btn-"],
+[class^=btn-] {
+    display: inline-block;
+    line-height: 1;
+    border: none;
+    border-radius: 2px;
+    outline: 0;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+}
+
+.el-form-item .el-button{
+    padding: 10.2px 15px;
+}
+
+.el-button--primary {
+    padding: 8px 17px;
+    border-radius: 2px;
+}
+
+.btn-default {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #666;
+}
+
+.btn-success {
+    background-color: #1c84c6;
+    border-color: #1c84c6;
+    color: #FFFFFF;
+}
+
+.el-table thead th{
+  font-weight:normal;
+}
+.el-input__inner{
+  border-radius: 2px;
+}
+
+.profile-panel .el-form-item:after, .el-form-item__content:after {
+     clear: none;
+}
+.el-step__icon.is-text{
+    z-index: 0;
+}

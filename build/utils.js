@@ -54,13 +54,45 @@ exports.cssLoaders = function (options) {
     }
   }
 
+  //--------------------添加Sass Resoure loader-----
+function resolveResouce(name) {
+  return path.resolve(__dirname, '../src/styles/' + name);
+}
+
+function generateSassResourceLoader() {
+  var loaders = [
+    cssLoader,
+    'postcss-loader',
+    'sass-loader',
+    {
+      loader: 'sass-resources-loader',
+      options: {
+        // it need a absolute path 【引入sass全局变量，mixin，function等】
+        // resources: [resolveResouce('var.scss'), resolveResouce('mixins.scss')]  多个这样写！
+        resources: [resolveResouce('_mixin.scss')]
+      }
+    }
+  ];
+  if (options.extract) {
+    return ExtractTextPlugin.extract({
+      use: loaders,
+      fallback: 'vue-style-loader'
+    })
+  } else {
+    return ['vue-style-loader'].concat(loaders)
+  }
+}
+//-----------------------END-----------------------------
+
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less'),
-    sass: generateLoaders('sass', { indentedSyntax: true }),
-    scss: generateLoaders('sass'),
+    //sass: generateLoaders('sass', { indentedSyntax: true }),
+    //scss: generateLoaders('sass'),
+    sass: generateSassResourceLoader(),
+    scss: generateSassResourceLoader(),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
   }

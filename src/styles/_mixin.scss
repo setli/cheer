@@ -1,0 +1,116 @@
+$gray-link-color:#666;
+$base-color:#0F80FE;
+$white:#fff;
+$base-rgba1:rgba($base-color,.15);
+$base-rgba2:rgba($base-color,.2);
+$base-rgba3:rgba($base-color,.3);
+$white-rgba1:rgba($white,.1);
+$white-rgba2:rgba($white,.2);
+$white-rgba3:rgba($white,.3);
+$gray-color:#666;
+$sub-gray-color:#f7f7f7;
+$black-color:#333;
+$sub-color:#FF8F18;
+$price-color:#FF5B26;
+$font-family:arial, "Microsoft YaHei", 微软雅黑, "Hiragino Sans GB", "WenQuanYi Micro Hei", tahoma, simsun, 宋体;
+$max-width:1170px;
+@mixin center-container($max-width:1170px) {
+  @include center-block;
+  width: $max-width;
+}
+@mixin filter-gray{
+  filter:Gray; -webkit-filter: grayscale(100%); 
+}
+@mixin no-filter-gray{
+  filte:none; -webkit-filter:none; 
+}
+@mixin abs-before{
+  content: ' ';
+  @include absolute;
+  
+}
+@mixin scroll-y(){
+  overflow: hidden;
+  overflow-y: auto;
+}
+@mixin ellipsis{
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  overflow: hidden;
+}
+@mixin relative {
+  position: relative;
+}
+
+@mixin absolute {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+@mixin absolute-r {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+@mixin absolute-center {
+  position: absolute;
+  @include transform-xy;
+}
+@mixin transform-y{
+     top: 50%;
+     
+     @include transform(translateY(-50%));
+}
+@mixin transform-x{
+     left: 50%;
+     @include transform(translateX(-50%));
+}
+@mixin transform-xy{
+  left: 50%;
+  top: 50%;
+  @include transform(translate(-50%,-50%));
+}
+@mixin doter{
+  content: '“';
+  font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  position:absolute;
+  font-size: 34px;
+  color: #999;
+  font-style:italic;
+}
+@mixin box-shadow($shadow...){ -webkit-box-shadow:$shadow; -moz-box-shadow:$shadow; box-shadow:$shadow; }
+@mixin text-shadow($shadow...){ -webkit-text-shadow:$shadow; -moz-text-shadow:$shadow; text-shadow:$shadow; }
+// block得有宽度margin左右为auto才能居中 
+@mixin center-block { margin-left: auto; margin-right: auto; }
+
+// generic transform
+@mixin transform($transforms) {
+       transform: $transforms;
+}
+// rotate
+@mixin rotate ($deg) {
+@include transform(rotate(#{$deg}deg));
+}
+
+// scale
+@mixin scale($scale) {
+@include transform(scale($scale));
+} 
+// translate
+@mixin translate ($x, $y) {
+@include transform(translate($x, $y));
+}
+// skew
+@mixin skew ($x, $y) {
+@include transform(skew(#{$x}deg, #{$y}deg));
+}
+// Animations 和 keyframes
+@mixin keyframes($animationName) {
+  @keyframes #{$animationName} { @content; } 
+}
+@mixin animation($str) {
+  animation: #{$str};      
+}     
+@mixin transition($args...) {
+  transition: $args;
+}                           

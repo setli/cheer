@@ -1,0 +1,289 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-width: 1240px;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font: 400 1em/1.5 PingFang SC, Lantinghei SC, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+}
+
+address,
+cite,
+dfn,
+em,
+var {
+    font-style: normal;
+}
+
+small {
+    font-size: 12px;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a.inherit {
+    color: inherit;
+}
+
+sup {
+    vertical-align: text-top;
+}
+
+sub {
+    vertical-align: text-bottom;
+}
+
+legend {
+    color: #000;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+input,
+textarea,
+keygen,
+select,
+button {
+    font-size: 100%;
+    text-rendering: optimizelegibility;
+    font-family: $font-family;
+    font-size: 14px;
+    line-height: 1.5;
+    font-smoothing: antialiased;
+    text-size-adjust: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html {
+    text-rendering: optimizelegibility;
+    font-family: $font-family;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    font-smoothing: antialiased;
+    text-size-adjust: 100%;
+}
+
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+}
+
+div {
+    display: block;
+}
+
+b,
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 400;
+}
+
+:focus,
+a:focus {
+    outline: 0;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.17em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+h5 {
+    font-size: .83em;
+}
+
+h6 {
+    font-size: .67em;
+}
+
+a {
+    text-decoration: none;
+    color: $base-color;
+    &:hover {
+        text-decoration: none;
+        cursor: pointer;
+        color: rgba($base-color, .8);
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -.5em;
+}
+
+sub {
+    bottom: -.25em;
+}
+
+.hidden {
+    display: none !important;
+}
+
+* html .clearfix {
+    height: 1%;
+}
+
+.l {
+    float: left;
+}
+
+.r {
+    float: right;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+.primary-button {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: white;
+    border: 1px solid $base-color;
+    color: $base-color;
+    margin: 0;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    &:hover {
+        background: $base-color;
+        color: white;
+    }
+}
+
+.center-container {
+    @include center-container;
+}
+
+.center-container-lite {
+    @include center-container(1000px);
+}
+
+.white-background {
+    background: white;
+}
+
+.br {
+    height: 20px;
+    clear: both;
+}
+
+.gray {
+    color: $gray-color;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bt-shadow {
+    box-shadow: 0 0 5px #888;
+}
+
+.dialog-footer {
+    text-align: left;
+    border-top: 1px solid #eee;
+    padding: 20px;
+    padding-left: 120px;
+}
+
+.el-form-item__success {
+    color: #13CE66 !important;
+}
+
+@import './element-ui.scss';
