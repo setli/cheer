@@ -1,18 +1,35 @@
 <template>
+
   <div>
     <el-container>
-      <el-header>zheli shi toubu</el-header>
+      <el-header>简运，激情货代</el-header>
       <el-main>
         <div class="main">
-          <el-input placeholder="用户名" v-model="username">
-          </el-input>
-          <el-input placeholder="密码" v-model="passport">
-          </el-input>
-          <el-button type="primary" @click="submit">登录</el-button>
+          <el-tabs v-model="activeName2" type="card" @tab-click="handleClick">
+            <el-tab-pane label="登录" name="first">
+              <div class="my-tab-margin">
+                <div class="my-input">
+                  <input sytle="none" type="text"  placeholder="用户名" v-model="username">
+                </div>
+                <div class="my-input">
+                  <input sytle="none" type="text"  placeholder="密码" v-model="passport">
+                </div>
+                <el-button type="primary" @click="submit">登录</el-button>
+              </div>
+            </el-tab-pane>
+            <el-tab-pane label="注册" >注册</el-tab-pane>
+          </el-tabs>
+          
         </div>
       </el-main>
       <el-footer>
-        <p>底部显示文本</p>
+        <p>联系我们</p>
+        <p>
+          <span>前台</span>
+          <span>前台</span>
+          <span>前台</span>
+          <span class="my-last-span">前台</span>
+        </p>
       </el-footer>
     </el-container>
   </div>
@@ -22,11 +39,15 @@
 export default {
   data() {
     return {
+      activeName2: 'first',
       username: "",
       passport: ""
     };
   },
   methods: {
+    handleClick(tab, event) {
+        console.log(tab, event);
+      },
     submit() {
       this.$cookies.set("logged", true)
     }
@@ -34,18 +55,49 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-
+.el-container{
+  background-image: url(../image/bg-plane.jpg);
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+}
 .main {
-  width: 400px;
-  padding: 200px;
+  width: 300px;
+  padding: 100px 50px;
+  margin-left: 60%;
+  background-color: #fff;
+  box-shadow: #aaa;
   button{
     width: 100%;
+    margin-top: 20px;
+  }
+  .my-tab-margin{
+    input{
+      border: none;
+      outline:medium;
+      margin:5px 10px;
+      line-height: 2;
+      font-size: 14px;
+      width: 100%;
+    }
+    .my-input{
+      border: none;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
   }
 }
+
 .el-footer {
-  background-color: #b3c0d1;
   color: #333;
   text-align: center;
-  line-height: 60px;
+  line-height: 2;
+  display: block;
+  span{
+    border-right: 1px solid #ddd;
+    padding: 0 10px;
+  }
+  .my-last-span{
+    border: none;
+  }
 }
 </style>
