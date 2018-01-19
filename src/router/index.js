@@ -9,13 +9,22 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'login',
-      component: login
+      name: 'home',
+      component: dynamicImportPage('views/layout/index')
+    },
+    {
+      path: '/home',
+      name: 'home',
+      component: dynamicImportPage('views/layout/index')
     },
     {
       path: '/login',
       name: 'login',
       component: login
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
   ]
 })
