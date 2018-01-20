@@ -1,6 +1,6 @@
 <template>
   <div class="footer" height="45px">
-     @2018-简运工具
+     @2018-后台工具
   </div>
 </template>
 

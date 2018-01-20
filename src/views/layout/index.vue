@@ -3,7 +3,7 @@
     <el-header>
       <vheader></vheader>
     </el-header>
-    <el-container>
+    <el-container class="layout-content">
       <el-aside width="200px">
         <leftNav />
       </el-aside>
@@ -46,10 +46,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.layout-content {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  background: #f5f7f9;
+  z-index: 0;
+  overflow: hidden;
+  word-break: break-all;
+  margin-top: 61px;
+}
 .el-main {
   background: #f5f7f9;
-  min-height: 500px;
+  //min-height: 500px;
 }
 footer {
   padding: 0;

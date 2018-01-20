@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="layout-left">
     <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
       <el-submenu index="1">
         <template slot="title">
@@ -50,7 +50,17 @@
 
 </script>
 
-<style>
-
-
+<style lang="scss">
+.layout-left{
+   height: 100%;
+  width: 200px;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  background: #ebeef5;
+  z-index: 0;
+  overflow: hidden;
+  word-break: break-all;
+}
 </style>
+

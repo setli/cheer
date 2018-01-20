@@ -34,7 +34,10 @@ export default {
 }
 .layout-main {
   background: #fff !important;
-  min-height: 500px;
+  //min-height: 500px;
+   position: absolute;  
+  height: 100%;  
+  overflow:hidden; word-break:break-all; 
 }
 </style>
 
