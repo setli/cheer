@@ -31,13 +31,18 @@ export default {
 .layout {
   padding: 2px;
   padding-bottom: 17px;
+  width: 100%;
 }
 .layout-main {
-  background: #fff !important;
-  //min-height: 500px;
-   position: absolute;  
-  height: 100%;  
-  overflow:hidden; word-break:break-all; 
+  //border: 1px solid #dddee1;
+  //border-color: #e9eaec;
+  //padding: 15px;
+  //background: #fff !important;
+  //border-radius: 4px;
+  font-size: 14px;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  min-height: 200px;
 }
 </style>
 

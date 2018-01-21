@@ -8,8 +8,6 @@ function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
-
-
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
@@ -88,11 +86,13 @@ module.exports = {
         test: /(router.*?\.js|components.*?\.vue)$/,
         loader: 'function-pre-run-loader',
         query: {
-          functionArray: [{
-            functionName: 'dynamicImportPage',
-            functionArgs: ['comPath'],
-            functionBody: "return `r => require.ensure([], () => r(require('${comPath}')), '${comPath.replace(new RegExp('.*\/page\/|\.vue', 'g'), '').replace(new RegExp('\/', 'g'), '-').toLocaleLowerCase()}'),`"
-          }],
+          functionArray: [
+            {
+              functionName: 'dynamicImportPage',
+              functionArgs: ['comPath'],
+              functionBody: "return `r => require.ensure([], () => r(require('${comPath}')), '${comPath.replace(new RegExp('.*\/page\/|\.vue', 'g'), '').replace(new RegExp('\/', 'g'), '-').toLocaleLowerCase()}')`"
+            }
+          ],
         }
       },
     ]
