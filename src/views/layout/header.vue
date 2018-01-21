@@ -26,7 +26,7 @@
           <el-dropdown-item>个人中心</el-dropdown-item>
           <el-dropdown-item>我的信息</el-dropdown-item>
           <el-dropdown-item>系统设置</el-dropdown-item>
-          <el-dropdown-item divided>退出</el-dropdown-item>
+          <el-dropdown-item divided @click="logout">退出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
       <span>
@@ -43,7 +43,11 @@
         activeIndex: "1"
       };
     },
-    methods: {}
+    methods: {
+      logout(){
+        window.$cookies.remove('logged',false);
+      }
+    }
   };
 
 </script>
