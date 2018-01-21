@@ -3,7 +3,7 @@
     <el-container>
       <el-header height="80px">
         <div class="logo">
-          <img src="../../assets/cheer-logo.jpg">
+          <img src="../../assets/images/cheer-logo.jpg">
         </div>
       </el-header>
       <el-main>

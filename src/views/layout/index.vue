@@ -11,9 +11,9 @@
         <el-main>
           <appmain></appmain>
         </el-main>
-        <el-footer>
+        <!-- <el-footer>
           <vfooter></vfooter>
-        </el-footer>
+        </el-footer> -->
       </el-container>
     </el-container>
   </el-container>
@@ -46,6 +46,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
 .layout-content {
   height: 100%;
   width: 100%;
@@ -60,6 +62,7 @@ export default {
 }
 .el-main {
   background: #f5f7f9;
+  width: 100%;
   //min-height: 500px;
 }
 footer {
@@ -67,5 +70,6 @@ footer {
   background: #f5f7f9;
   text-align: center;
   color: #999;
+  line-height: 45px;
 }
 </style>
