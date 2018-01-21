@@ -12,27 +12,6 @@ Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueCookies)
 
-// register global progress.
-const whiteList = ['/login'];// 不重定向白名单
-router.beforeEach((to, from, next) => {
-  console.log(1)
-  let logged =  window.$cookies.get('logged')
-  if (logged) { // 判断是否有token
-    if (to.path === '/login') {
-      next({ path: '/' });
-    } else {
-      next();
-    }
-  } else {
-    if (whiteList.indexOf(to.path) !== -1) { // 在免登录白名单，直接进入
-      next()
-    } else {
-      next('/login'); // 否则全部重定向到登录页
-    }
-  }
-});
-
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

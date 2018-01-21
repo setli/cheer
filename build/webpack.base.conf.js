@@ -1,4 +1,4 @@
-'use strict'
+
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
@@ -23,6 +23,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
+    modules: [
+      resolve('src'),
+      resolve('node_modules')
+    ],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
@@ -38,19 +42,23 @@ module.exports = {
     }
   },
   module: {
+    noParse: /node_modules\/(element-ui\.js)/,
     rules: [{
         test: /\.vue$/,
         loader: 'vue-loader',
+        include: [resolve('src')],
         options: vueLoaderConfig
       },
       {
         test: /\.js$/,
+        exclude: /(node_modules)/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+        include: [resolve('src'), resolve('test'), resolve('config'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
+        include: [resolve('src/assets/images')],
         options: {
           limit: 10000,
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
@@ -86,7 +94,7 @@ module.exports = {
             functionBody: "return `r => require.ensure([], () => r(require('${comPath}')), '${comPath.replace(new RegExp('.*\/page\/|\.vue', 'g'), '').replace(new RegExp('\/', 'g'), '-').toLocaleLowerCase()}'),`"
           }],
         }
-      }
+      },
     ]
   },
   node: {

@@ -1,6 +1,7 @@
 <template>
   <div>
-    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#495060" text-color="#fff" active-text-color="#ffd04b">
+    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#495060" text-color="#fff"
+      active-text-color="#ffd04b">
       <el-menu-item class="logo">
         <div>logo</div>
       </el-menu-item>
@@ -15,36 +16,75 @@
         <a>订单管理</a>
       </el-menu-item>
     </el-menu>
-
+    <div class="avatar">
+      <el-dropdown>
+        <a class="el-dropdown-link">
+          管理员
+          <i class="el-icon-arrow-down el-icon--right"></i>
+        </a>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>个人中心</el-dropdown-item>
+          <el-dropdown-item>我的信息</el-dropdown-item>
+          <el-dropdown-item>系统设置</el-dropdown-item>
+          <el-dropdown-item divided>退出</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+      <span>
+        <img src="https://avatars3.githubusercontent.com/u/19206807?s=40&v=4" />
+      </span>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      activeIndex: "1"
-    };
-  },
-  methods: {}
-};
+  export default {
+    data() {
+      return {
+        activeIndex: "1"
+      };
+    },
+    methods: {}
+  };
+
 </script>
 
 <style lang="scss">
-.el-header {
-  .logo {
-    width: 200px;
-    text-align: center;
-    div {
-      width: 100px;
-      height: 30px;
-      background: #5b6270;
+  .el-header {
+    .logo {
+      width: 200px;
       text-align: center;
-      line-height: 30px;
-      vertical-align: middle;
-      display: inline-block;
+      div {
+        width: 100px;
+        height: 30px;
+        background: #5b6270;
+        text-align: center;
+        line-height: 30px;
+        vertical-align: middle;
+        display: inline-block;
+      }
+    }
+    padding: inherit !important;
+    .avatar {
+      color: #fff;
+      position: absolute;
+      right: 0;
+      top: 0;
+      line-height: 60px;
+      .el-dropdown{
+        padding: 0 15px;
+      }
+      .el-dropdown:hover{
+        background: rgba(58, 64, 77, 1)
+      }
+      .el-dropdown-link {
+        color: #fff;
+      }
+      img {
+        margin-right: 20px;
+        border-radius: 50%;
+        box-sizing: border-box;
+      }
     }
   }
-  padding: inherit !important;
-}
+
 </style>

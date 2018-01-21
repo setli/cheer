@@ -5,14 +5,14 @@
     </el-header>
     <el-container class="layout-content">
       <el-aside width="200px">
-        <leftNav />
+        <leftNav></leftNav>
       </el-aside>
       <el-container>
         <el-main>
-          <appmain />
+          <appmain></appmain>
         </el-main>
         <el-footer>
-          <vfooter />
+          <vfooter></vfooter>
         </el-footer>
       </el-container>
     </el-container>
