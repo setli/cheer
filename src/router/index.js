@@ -13,7 +13,7 @@ export const router =  new VueRouter({
 router.beforeEach((to, from, next) => {
   let logged =  window.$cookies.get('logged')
   if (!logged && to.path === '/login') {
-      next({ path: '/login' });
+      next();
   } else if(logged && to.name === 'login') {
     next('/');
   }else{

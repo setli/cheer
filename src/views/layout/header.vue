@@ -2,7 +2,7 @@
   <div>
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#495060" text-color="#fff"
       active-text-color="#ffd04b">
-      <el-menu-item class="logo">
+      <el-menu-item index="0" class="logo">
         <div>logo</div>
       </el-menu-item>
       <el-menu-item index="1">处理中心</el-menu-item>
@@ -17,7 +17,7 @@
       </el-menu-item>
     </el-menu>
     <div class="avatar">
-      <el-dropdown>
+      <el-dropdown @command="handleCommand">
         <a class="el-dropdown-link">
           管理员
           <i class="el-icon-arrow-down el-icon--right"></i>
@@ -26,7 +26,7 @@
           <el-dropdown-item>个人中心</el-dropdown-item>
           <el-dropdown-item>我的信息</el-dropdown-item>
           <el-dropdown-item>系统设置</el-dropdown-item>
-          <el-dropdown-item divided @click="logout">退出</el-dropdown-item>
+          <el-dropdown-item divided command="logout">退出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
       <span>
@@ -44,8 +44,15 @@
       };
     },
     methods: {
-      logout(){
-        window.$cookies.remove('logged',false);
+      handleCommand(command){
+        console.log(command)
+        switch(command){
+          case "logout":
+          window.$cookies.remove('logged');
+          this.$router.push({ path: '/login' })
+          break;
+        }
+        
       }
     }
   };
