@@ -86,16 +86,7 @@ export default {
     };
   },
   methods: {
-    //输入错误警示
-
-    //登录注册切换
-    // handleClick(tab, event) {
-    //   console.log(tab, event);
-    // },
-    // submit() {
-    //   this.$cookies.set("logged", true);
-    //   location.replace("/");
-    // }
+  
   }
 };
 </script>
@@ -107,58 +98,12 @@ export default {
   height: 100%;
   display: flex;
   justify-content: center;
-  background-image: url(../../assets/images/bg.png);
+  background-image: url(../../assets/images/bg.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%; //用css画背景
-  .draw1 {
-    background: rgb(217, 217, 240);
-    top: 0;
-    left: 10%;
-    width: 20%;
-    height: 15%;
+  a{
+    color:#099cbc;
   }
-  .draw2 {
-    border: 1px solid #fff;
-    top: 2%;
-    left: 10%;
-    width: 20%;
-    height: 20%;
-  }
-  .draw3 {
-    border-bottom: 100px solid #669;
-    bottom: 0;
-    left: 0;
-  }
-  .absolute {
-    position: absolute;
-  }
-  .shadow {
-    box-shadow: 1px 1px 6px #e4d6e4;
-  }
-  .draw4 {
-    border-top: 100px solid #669;
-    right: 0;
-    width: 20%;
-    height: 15%;
-  } //平行四边形
-  .parallelogram {
-    -webkit-transform: skew(-20deg);
-    -moz-transform: skew(-20deg);
-    -o-transform: skew(-20deg);
-    margin-left: 20px;
-  }
-  /*三角形*/
-  .triangle-up {
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-  }
-  .triangle-topright {
-    width: 0;
-    height: 0;
-    border-left: 100px solid transparent;
-  } //画完
 }
 
 .el-container {
@@ -184,22 +129,23 @@ export default {
       margin-top: 20px;
       line-height: 1.5;
       font-size: 16px;
+      background-color: #099cbc;
     }
     .SignFlowHeader {
       padding-top: 50px;
       text-align: center;
       .logo {
-        width: 194px;
-        height: 50px;
-        background-image: url("../../assets/images/cheer-logo2.jpg");
+        width: 174px;
+        height: 76px;
+        background-image: url("../../assets/images/cheer-logo2.png");
         background-size: contain;
         background-repeat: no-repeat;
         margin: 0 auto;
       }
       .info {
         margin-top: 10px;
-        color: #666;
-        font-size: 19px;
+        color: #06667b;
+        font-size: 16px;
       }
     }
     .my-tab-margin {
@@ -287,6 +233,11 @@ export default {
     width: 100%;
     line-height: 25px;
     font-size: 14px;
+    color: #099cbc;
+    border-color: #9cddeb;
+  }
+  button:hover{
+    background-color: #099cbc;
   }
 }
 </style>
