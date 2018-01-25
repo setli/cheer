@@ -1,11 +1,11 @@
 <template>
   <div class="login">
-    <div class="bg-draw">
+    <!-- <div class="bg-draw">
       <div class="draw1 parallelogram absolute flex1 shadow"></div>
       <div class="draw2 parallelogram absolute flex1"></div>
       <div class="draw3 triangle-up absolute flex1"></div>
       <div class="draw4 triangle-topright absolute flex1"></div>
-    </div>
+    </div> -->
     <el-container>
       <!-- <el-header>简运slogan</el-header> -->
       <el-main>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="my-input">
                   <input sytle="none" type="text" placeholder="输入6位短信验证吗" v-model="passport">
-                  <a class="SignFlow-smsInputButton" href="#">获取短信验证吗</a>
+                  <a class="SignFlow-smsInputButton" href="#">获取短信验证码</a>
                 </div>
                 <el-button type="primary" @click="submit">注册</el-button>
                 <p class="Register-declaration">
@@ -86,14 +86,16 @@ export default {
     };
   },
   methods: {
+    //输入错误警示
+
     //登录注册切换
-    handleClick(tab, event) {
-      console.log(tab, event);
-    },
-    submit() {
-      this.$cookies.set("logged", true);
-      location.replace("/");
-    }
+    // handleClick(tab, event) {
+    //   console.log(tab, event);
+    // },
+    // submit() {
+    //   this.$cookies.set("logged", true);
+    //   location.replace("/");
+    // }
   }
 };
 </script>
@@ -105,7 +107,7 @@ export default {
   height: 100%;
   display: flex;
   justify-content: center;
-  background-image: url(../../assets/images/bg-plane.jpg);
+  background-image: url(../../assets/images/bg.png);
   background-repeat: no-repeat;
   background-size: 100% 100%; //用css画背景
   .draw1 {
@@ -189,7 +191,7 @@ export default {
       .logo {
         width: 194px;
         height: 50px;
-        background-image: url("../../assets/images/cheer-logo.jpg");
+        background-image: url("../../assets/images/cheer-logo2.jpg");
         background-size: contain;
         background-repeat: no-repeat;
         margin: 0 auto;
@@ -226,7 +228,7 @@ export default {
         .SignFlow-smsInputButton {
           position: absolute;
           right: 0;
-          top: 19px;
+          top: 6px;
         }
       }
     }
