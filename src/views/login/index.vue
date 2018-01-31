@@ -9,58 +9,7 @@
     <el-container>
       <!-- <el-header>简运slogan</el-header> -->
       <el-main>
-        <div class="main">
-          <div class="SignFlowHeader">
-            <div class="logo"></div>
-            <div class="info">简洁而不简单的物流工具</div>
-          </div>
-          <div class="my-tab-margin">
-            <div class="SignContainer-inner">
-              <!-- 登录 -->
-              <div class="login-content" v-if="mode == 0">
-                <div class="my-input">
-                  <input sytle="none" type="text" placeholder="手机号或邮箱" v-model="username">
-                </div>
-                <div class="my-input">
-                  <input sytle="none" type="text" placeholder="密码" v-model="passport">
-                </div>
-                <p>
-                  <a class="SignFlow-smsInputButton" href="#">手机验证码登录</a>
-                  <a class="SignFlow-fogetPSW" href="#">忘记密码</a>
-                </p>
-                <el-button type="primary" @click="submit">登录</el-button>
-              </div>
-              <!-- 注册 -->
-              <div class="register-content" v-if="mode == 1">
-                <div class="my-input">
-                  <input sytle="none" type="text" placeholder="手机号" v-model="username">
-                </div>
-                <div class="my-input">
-                  <input sytle="none" type="text" placeholder="输入6位短信验证吗" v-model="passport">
-                  <a class="SignFlow-smsInputButton" href="#">获取短信验证码</a>
-                </div>
-                <el-button type="primary" @click="submit">注册</el-button>
-                <p class="Register-declaration">
-                  <span>注册即代表你同意</span>
-                  <a href="#">《用户协议》</a>
-                </p>
-              </div>
-            </div>
-            <div class="goto-another">
-              <p class="goto-register" v-if="mode == 0">
-                <span>没有简运账号？</span>
-                <a href="#" @click="mode=1">点击注册</a>
-              </p>
-              <p class="goto-login" v-if="mode == 1">
-                <span>已有简运账号？</span>
-                <a href="#" @click="mode=0">点击登录</a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="download">
-          <el-button type="primary" plain>下载桌面版</el-button>
-        </div>
+        <router-view></router-view>
       </el-main>
       <el-footer>
         <p>联系我们</p>
@@ -91,7 +40,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 .login {
   position: absolute;
   width: 100%;
@@ -153,10 +102,6 @@ export default {
       .SignContainer-inner {
         padding: 0 50px 80px 50px;
         margin-top: 10px;
-        .register-content {
-        }
-        .login-content {
-        }
       }
       input {
         color: #8590a6;
@@ -200,10 +145,6 @@ export default {
       line-height: 3;
       text-align: center;
       font-size: 16px;
-      .goto-login {
-      }
-      .goto-register {
-      }
     }
   }
   .el-footer {

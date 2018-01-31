@@ -3,12 +3,28 @@ import Layout from '@/views/layout';
 // 不作为Main组件的子页面展示的页面单独写，如下
 export const loginRouter = {
   path: '/login',
-  name: 'login',
+  redirect: {
+    name: 'login_index'
+  },
   meta: {
     title: 'Login - 登录'
   },
+  children: [{
+      path: 'index',
+      title: '简运-登录',
+      name: 'login_index',
+      component: dynamicImportPage('views/login/login'),
+    },
+    {
+      path: 'register',
+      title: '注册',
+      name: 'login_register',
+      component: dynamicImportPage('views/login/register'),
+    }
+  ],
   component: dynamicImportPage('views/login/index')
 };
+
 export const page404 = {
   path: '/*',
   name: 'error-404',
@@ -138,7 +154,7 @@ export const appRouter = [{
         icon: 'ios-more',
         name: 'area-linkage',
         title: '城市级联',
-        component:dynamicImportPage('views/error/404')
+        component: dynamicImportPage('views/error/404')
       },
       {
         path: 'file-upload',
@@ -261,7 +277,7 @@ export const appRouter = [{
       path: 'index',
       title: '错误页面',
       name: 'errorpage_index',
-      component:dynamicImportPage('views/error/404')
+      component: dynamicImportPage('views/error/404')
     }]
   }
 ];
